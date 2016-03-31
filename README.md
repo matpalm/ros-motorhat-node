@@ -1,4 +1,4 @@
-[ROS](http://www.ros.org/) node wrapper for the [Adafruit DC & Stepper Motor HAT](https://www.adafruit.com/products/2348).
+c++ [ROS](http://www.ros.org/) node wrapper for the [Adafruit DC & Stepper Motor HAT](https://www.adafruit.com/products/2348).
 
 ![Adafruit motor hat](motor_hat.jpg)
 

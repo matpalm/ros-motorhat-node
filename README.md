@@ -1,4 +1,4 @@
-[ros](http://www.ros.org/) node wrapper for the [Adafruit DC & Stepper Motor HAT](https://www.adafruit.com/products/2348).
+[ROS](http://www.ros.org/) node wrapper for the [Adafruit DC & Stepper Motor HAT](https://www.adafruit.com/products/2348).
 
 ![Adafruit motor hat](motor_hat.jpg)
 
@@ -8,11 +8,11 @@ subscribes to [std_msg::Int16MultiArray](http://docs.ros.org/jade/api/std_msgs/h
 messages expecting 4 values (one for each motor) between -255 (full reverse) to 255 (full forward). A value of 0 denotes turning
 off motor. 
 
-node sends [0,0,0,0] (i.e. stop all) on exit.
+node sends stopAll on exit.
 
 ````
-# example sending of command.
-rostopic pub -1 /cmd std_msgs/Int16MultiArray "{data:[1,2,3,4]}"
+# skid steer right (assuming motor0 & 1 are left hand side)
+rostopic pub -1 /cmd std_msgs/Int16MultiArray "{data:[200, 200, -200, -200]}"
 ````
 
 TODOS

@@ -2,9 +2,11 @@
 
 ![Adafruit motor hat](motor_hat.jpg)
 
+Based on tracing behaviour of the [AdaFruit Python lib](https://github.com/adafruit/Adafruit-Motor-HAT-Python-Library)
+
 note: no code for the Stepper Motor control, just the DCs.
 
-subscribes to [std_msg::Int16MultiArray](http://docs.ros.org/jade/api/std_msgs/html/msg/Int16MultiArray.html)
+subscribes to `cmd` topic [std_msg::Int16MultiArray](http://docs.ros.org/jade/api/std_msgs/html/msg/Int16MultiArray.html)
 messages expecting 4 values (one for each motor) between -255 (full reverse) to 255 (full forward). A value of 0 denotes turning
 off motor. 
 

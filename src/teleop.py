@@ -9,7 +9,7 @@ import sys, select, tty, termios
 import rospy
 from std_msgs.msg import Int16MultiArray
 
-RANGE = 250  # expect all node values to be in interval [-RANGE, RANGE]
+RANGE = 150  # expect all node values to be in interval [-RANGE, RANGE]
 STEP = 50    # interpolate between current & target at this rate.
 
 def step(a, b):
@@ -25,10 +25,11 @@ def step(a, b):
     return s
 
 # setup a ros publisher and a method to send msgs to it.
-publisher = rospy.Publisher('keys', Int16MultiArray, queue_size=1, latch=True)
+publisher = rospy.Publisher('/robotZero/hat_cmd', Int16MultiArray, queue_size=1, latch=True)
 rospy.init_node("teleop")
 rate = rospy.Rate(100)
 def pub(values):
+    values = [-v for v in values]  # hack
     rospy.loginfo("publish [%s]" % values)
     msg = Int16MultiArray()
     msg.data = values
